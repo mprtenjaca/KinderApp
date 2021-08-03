@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import DataProvider from './redux/store.js';
 
+import './index.css'
+
 ReactDOM.render(
     <React.StrictMode>
         <DataProvider>
@@ -12,3 +14,4 @@ ReactDOM.render(
     </React.StrictMode>,
     document.getElementById('root')
 );
+
