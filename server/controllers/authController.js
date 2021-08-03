@@ -142,8 +142,45 @@ const authController = {
     },
     register: async (req, res) => {
         try{
-            const { firstName, lastName, email, username, password, gender} = req.body;
-            res.status(200).json({msg: 'Registration Sucessful ah!'});
+            const { firstName, lastName, email, password, gender} = req.body
+            
+            let username = req.body.firstName + req.body.lastName;
+            username = username.toLowerCase();
+
+            const existingParent = await ParentSchema.findOne({email: email});
+            if(existingParent){
+                return res.status(400).json({msg: "This email is already exists."});
+            }
+
+            if(password.length < 4){
+                return res.status(400).json({msg: "Password must be at least 4 characters."});
+            }
+
+            const paswordHash = await bcrypt.hash(password, 12);
+
+            const newParent = new ParentSchema({
+                firstName, lastName, email, username, password: paswordHash, gender
+            });
+
+            const access_token = createAccessToken({id: newParent._id});
+            const refresh_token = createRefreshToken({id: newParent._id});
+
+            res.cookie('refreshtoken', refresh_token, {
+                httpOnly: true,
+                path: '/api/refresh_token',
+                maxAge: 30*7*24*60*60*1000 // 30 days
+            });
+
+            await newParent.save();
+
+            res.json({
+                msg: 'Registration Sucessful!',
+                access_token,
+                user: {
+                    ...newParent._doc,
+                    password: ''
+                }
+            });
         }catch(err){
             return res.status(500).json({msg: err.message});
         }

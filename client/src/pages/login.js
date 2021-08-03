@@ -25,29 +25,6 @@ const Login = () => {
     }
 
     return (
-        // <div classNameName="container">
-        //     <div classNameName="auth_page">
-        //         <div classNameName="auth_img">
-        //             <img classNameName="img" src={img} />
-        //         </div>
-        //         <form onSubmit={handleSubmit}>
-        //             <h2>WELCOME</h2>
-        //             <div classNameName="form-group">
-        //                 <label htmlFor="exampleInputEmail1">Email address</label>
-        //                 <input type="email" classNameName="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onChange={handleChangeInput} value={email} name="email"/>
-        //                 <small id="emailHelp" classNameName="form-text text-muted">We'll never share your email with anyone else.</small>
-        //             </div>
-        //             <div classNameName="form-group">
-        //                 <label htmlFor="exampleInputPassword1">Password</label>
-        //                 <input type="password" classNameName="form-control" id="exampleInputPassword1" placeholder="Password" onChange={handleChangeInput} value={password} name="password"/>
-        //             </div>
-        //             <button type="submit" classNameName="btn btn-primary" disabled={email && password ? false : true}>
-        //                 Submit
-        //             </button>
-        //             <p classNameName="my-2">You don't have an account? <Link to="/register">Register Now</Link></p>
-        //         </form>
-        //     </div>
-        // </div>
         <div className="container">
 		<div className="img">
 			<img src={img}/>
