@@ -180,6 +180,7 @@ const authController = {
                 }
             });
         }catch(err){
+            console.log("MARKo")
             return res.status(500).json({msg: err.message});
         }
     },

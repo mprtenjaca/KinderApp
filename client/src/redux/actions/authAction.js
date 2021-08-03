@@ -12,6 +12,6 @@ export const login = (data) => async (dispatch) => {
         const res = await postDataAPI('login', data);
         console.log(res);
     }catch(err){
-
+        console.log(err.message);
     }
 }

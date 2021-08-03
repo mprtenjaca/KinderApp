@@ -10,8 +10,8 @@ import authRouter from './routes/authRouter.js';
 dotenv.config();
 const app = exrpess();
 
-app.use(exrpess.json({extended: true}));
-app.use(exrpess.urlencoded({extended: true}));
+app.use(exrpess.json());
+app.use(exrpess.urlencoded());
 app.use(cookieParser());
 app.use(cors());
 
