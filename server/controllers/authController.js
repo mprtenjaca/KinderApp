@@ -137,9 +137,6 @@ const createRefreshToken = (payload) => {
 
 
 const authController = {
-    a: async (req, res) => {
-       console.log("MARKO")
-    },
     register: async (req, res) => {
         try{
             const { firstName, lastName, email, password, gender} = req.body
@@ -217,13 +214,13 @@ const authController = {
                 }
             });
         }catch(err){
-            console.log("MARKo")
             return res.status(500).json({msg: err.message});
         }
     },
     logout: async (req, res) => {
         try{
-
+            res.clearCookie('refreshtoken', {path: '/api/refresh_token'});
+            res.json({msg: 'Logged out!'});
         }catch(err){
             return res.status(500).json({msg: err.message});
         }

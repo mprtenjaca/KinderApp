@@ -103,7 +103,7 @@ const Register = () => {
                         FEMALE: <input type="radio" id="female" name="gender" value="female" onChange={handleChangeInput} />
                     </label>
                 </div>
-                <div><Link to="/register">Login Now</Link></div>
+                <div><Link to="/">Login Now</Link></div>
             	<a href="#">Forgot Password?</a>
             	<input type="submit" className="btn" value="Login" disabled={email && password ? false : true}/>
             </form>

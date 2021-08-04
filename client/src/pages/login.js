@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import { login } from '../redux/actions/authAction.js';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import img from '../images/authImg.svg';
 import avatar from '../images/avatar.svg';
@@ -12,7 +12,15 @@ const Login = () => {
     const [userData, setUserData] = useState(initialState);
     const {email, password} = userData;
 
+	const { auth } = useSelector(state => state);
     const dispatch = useDispatch();
+	const history = useHistory();
+
+	useEffect(() => {
+        if(auth.token){
+            history.push("/")
+        }
+    }, [auth.token, history])
 
     const handleChangeInput = e => {
         const {name, value} = e.target;

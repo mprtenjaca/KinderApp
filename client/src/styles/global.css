@@ -1,0 +1,14 @@
+*{
+    padding: 0;
+}
+
+body{
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Auth style */
+@import url("./loginStyle.css");
+
+/* Header style */
+@import url("./header.css");
