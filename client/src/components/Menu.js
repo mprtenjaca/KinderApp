@@ -17,20 +17,8 @@ const Menu = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between align-middle">
             <Link className="navbar-brand" to="/"><img className="logo" src={logo}/></Link>
-            {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button> */}
             <div className="menu" id="navbarNav">
                 <ul className="navbar-nav flex-row">
-                    {/* {
-                        navLinks.map((link, index) => (
-                            <li className="nav-item active">
-                                <Link className="nav-link" to={link.path}>
-                                    <span className="material-icons">{link.icon}</span>
-                                </Link>
-                            </li>
-                        ))
-                    } */}
                     <li className="nav-item active">
                         <Link className="nav-link" to="/"><span className="material-icons">home</span></Link>
                     </li>

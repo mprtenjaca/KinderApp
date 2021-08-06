@@ -4,8 +4,8 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 
-import postRoutes from './routes/posts.js';
 import authRouter from './routes/authRouter.js';
+import userRouter from './routes/userRouter.js';
 
 dotenv.config();
 const app = exrpess();
@@ -18,8 +18,8 @@ app.use(cors());
 // Default route for application
 //app.use('/posts', postRoutes);
 app.use('/api', authRouter);
+app.use('/api', userRouter);
 
-//app.use(bodyParser.json({limit: "30mb", extended: true}));
 const CONNECTION_URL = process.env.MONGODB_URL;
 const PORT = process.env.PORT || 5000;
 
@@ -31,6 +31,3 @@ mongoose.connect(CONNECTION_URL, {
     useFindAndModify: false})
         .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))
         .catch((error) => console.log(error.message));
-
-// Makes sure to avoid warnings in console
-//mongoose.set('useFindAndModify', false);

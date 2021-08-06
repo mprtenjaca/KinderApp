@@ -1,16 +1,12 @@
-const router = require('express').Router()
-const auth = require("../middleware/auth.js")
-const userController = require("../controllers/userController.js")
+import express from 'express';
+import UserController from '../controllers/userController.js';
+import auth from '../middleware/auth.js';
+
+const router = express.Router();
+router.get('/search', auth, UserController.searchUser)
+router.get('/user/:id', auth, UserController.getUser)
+router.patch('/user', auth, UserController.updateUser)
+router.get('/suggestionsUser', auth, UserController.suggestionsUser)
 
 
-router.get('/search', auth, userController.searchUser)
-
-router.get('/user/:id', auth, userController.getUser)
-
-router.patch('/user', auth, userController.updateUser)
-
-router.get('/suggestionsUser', auth, userController.suggestionsUser)
-
-
-
-module.exports = router
+export default router;

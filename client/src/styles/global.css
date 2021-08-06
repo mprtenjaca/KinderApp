@@ -13,6 +13,9 @@ body{
 /* Header style */
 @import url("./header.css");
 
+/* Profile style */
+@import url("./profile.css");
+
 
 /* --------- Responsive ------ */
 @media (max-width: 766px){

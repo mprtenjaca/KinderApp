@@ -11,6 +11,7 @@ import Login from './pages/login.js';
 import Header from './components/Header.js';
 import Register from './pages/register.js';
 import PrivateRouter from './customRouter/privateRouter.js';
+import EditProfile from './components/profileComponents/EditProfile.js';
 
 const App = () => {
     const { auth } = useSelector(state => state)
@@ -31,6 +32,7 @@ const App = () => {
 
                 <PrivateRouter exact path="/:page" component={PageRender} />
                 <PrivateRouter exact path="/:page/:id" component={PageRender} />
+                <Route exact path="/editProfile" component={EditProfile} />
             </div>
         </div>
         </Router>

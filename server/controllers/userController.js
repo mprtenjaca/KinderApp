@@ -1,6 +1,6 @@
-const Users = require('../models/userModel')
+import Users from '../models/parentModel.js';
 
-const userCtrl = {
+const userController = {
     searchUser: async (req, res) => {
         try {
             const users = await Users.find({username: {$regex: req.query.username}})
@@ -24,11 +24,12 @@ const userCtrl = {
     },
     updateUser: async (req, res) => {
         try {
-            const { avatar, fullname, mobile, address, story, website, gender } = req.body
-            if(!fullname) return res.status(400).json({msg: "Please add your full name."})
+            const { firstName, lastName, email, avatar, contactPhone, gender } = req.body
+            if(!firstName) return res.status(400).json({msg: "Please add your first name."})
+            if(!lastName) return res.status(400).json({msg: "Please add your last name."})
 
             await Users.findOneAndUpdate({_id: req.user._id}, {
-                avatar, fullname, mobile, address, story, website, gender
+                firstName, lastName, email, avatar, contactPhone, gender
             })
 
             res.json({msg: "Update Success!"})
@@ -62,4 +63,4 @@ const userCtrl = {
 }
 
 
-module.exports = userCtrl
+export default userController

@@ -1,4 +1,4 @@
-.container{
+.auth .container{
     width: 100vw;
     height: 100vh;
     display: grid;
@@ -8,38 +8,38 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.img{
+.auth .img{
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
 }
 
-.login-content{
+.auth .login-content{
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 	text-align: center;
 }
 
-.img img{
+.auth .img img{
 	width: 500px;
 }
 
-form{
+.auth form{
 	width: 360px;
 }
-.login-content img{
+.auth .login-content img{
     height: 100px;
 }
 
-.login-content h2{
+.auth .login-content h2{
 	margin: 15px 0;
 	color: #333;
 	text-transform: uppercase;
 	font-size: 2.9rem;
 }
 
-.login-content .input-div{
+.auth .login-content .input-div{
 	position: relative;
     display: grid;
     grid-template-columns: 7% 93%;
@@ -48,27 +48,27 @@ form{
     border-bottom: 2px solid #d9d9d9;
 }
 
-.login-content .input-div.one{
+.auth .login-content .input-div.one{
 	margin-top: 0;
 }
 
-.i{
+.auth .i{
 	color: #d9d9d9;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.i i{
+.auth .i i{
 	transition: .3s;
 }
 
-.input-div > div{
+.auth .input-div > div{
     position: relative;
 	height: 45px;
 }
 
-.input-div > div > h5{
+.auth .input-div > div > h5{
 	position: absolute;
 	left: 10px;
 	top: 50%;
@@ -78,7 +78,7 @@ form{
 	transition: .3s;
 }
 
-.input-div:before, .input-div:after{
+.auth .input-div:before, .input-div:after{
 	content: '';
 	position: absolute;
 	bottom: -2px;
@@ -88,28 +88,28 @@ form{
 	transition: .4s;
 }
 
-.input-div:before{
+.auth .input-div:before{
 	right: 50%;
 }
 
-.input-div:after{
+.auth .input-div:after{
 	left: 50%;
 }
 
-.input-div.focus:before, .input-div.focus:after{
+.auth .input-div.focus:before, .input-div.focus:after{
 	width: 50%;
 }
 
-.input-div.focus > div > h5{
+.auth .input-div.focus > div > h5{
 	top: -5px;
 	font-size: 15px;
 }
 
-.input-div.focus > .i > i{
+.auth .input-div.focus > .i > i{
 	color: #3F3D56;
 }
 
-.input-div > div > input{
+.auth .input-div > div > input{
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -124,7 +124,7 @@ form{
 	font-family: 'poppins', sans-serif;
 }
 
-small{
+.auth small{
 	position: absolute;
 	top: 50px;
 	left: 24px;
@@ -133,18 +133,18 @@ small{
 	padding: 0.5rem 0.7rem;
 }
 
-.input-div.pass{
+.auth .input-div.pass{
 	margin-bottom: 4px;
 }
 
-.input-div.genders {
+.auth .input-div.genders {
 	justify-content: space-between;
     display: flex;
 	color: #555;
 	font-family: 'poppins', sans-serif;
 }
 
-a{
+.auth a{
 	display: block;
 	text-align: right;
 	text-decoration: none;
@@ -153,11 +153,11 @@ a{
 	transition: .3s;
 }
 
-a:hover{
+.auth a:hover{
 	color: #3F3D56;
 }
 
-.btn{
+.auth .btn{
 	display: block;
 	width: 100%;
 	height: 50px;
@@ -174,45 +174,45 @@ a:hover{
 	cursor: pointer;
 	transition: .5s;
 }
-.btn:hover{
+.auth .btn:hover{
 	background-position: right;
 }
 
 @media screen and (max-width: 1050px){
-	.container{
+	.auth .container{
 		grid-gap: 5rem;
 	}
 }
 
 @media screen and (max-width: 1000px){
-	form{
+	.auth form{
 		width: 290px;
 	}
 
-	.login-content h2{
+	.auth .login-content h2{
         font-size: 2.4rem;
         margin: 8px 0;
 	}
 
-	.img img{
+	.auth .img img{
 		width: 400px;
 	}
 }
 
 @media screen and (max-width: 900px){
-	.container{
+	.auth .auth .container{
 		grid-template-columns: 1fr;
 	}
 
-	.img{
+	.auth .img{
 		display: none;
 	}
 
-	.wave{
+	.auth .wave{
 		display: none;
 	}
 
-	.login-content{
+	.auth .login-content{
 		justify-content: center;
 	}
 }

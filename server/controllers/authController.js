@@ -139,7 +139,7 @@ const createRefreshToken = (payload) => {
 const authController = {
     register: async (req, res) => {
         try{
-            const { firstName, lastName, email, password, gender} = req.body
+            const { firstName, lastName, email, password, contactPhone, gender} = req.body
             
             let username = req.body.firstName + req.body.lastName;
             username = username.toLowerCase();
@@ -156,7 +156,7 @@ const authController = {
             const paswordHash = await bcrypt.hash(password, 12);
 
             const newParent = new ParentSchema({
-                firstName, lastName, email, username, password: paswordHash, gender
+                firstName, lastName, email, username, password: paswordHash, contactPhone, gender
             });
 
             const access_token = createAccessToken({id: newParent._id});
