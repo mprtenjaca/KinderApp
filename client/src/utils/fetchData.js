@@ -16,7 +16,6 @@ export const postDataAPI = async (url, post, token) => {
 }
 
 export const putDataAPI = async (url, post, token) => {
-    console.log("asd")
     const res = await axios.put(`/api/${url}`, post, {
         headers: {Authorization: token}
     });
@@ -24,6 +23,7 @@ export const putDataAPI = async (url, post, token) => {
 }
 
 export const patchDataAPI = async (url, post, token) => {
+    console.log("patchDataAPI", token, url)
     const res = await axios.patch(`/api/${url}`, post, {
         headers: {Authorization: token}
     });

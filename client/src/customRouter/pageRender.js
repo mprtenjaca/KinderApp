@@ -23,13 +23,11 @@ const PageRender = () => {
     if(auth.token){
         if(id){
             pageName = `${page}/[id]`;
-            console.log("MARKO")
         }else{
             pageName = `${page}`;
         }
     }
     
-    console.log(pageName);
     return generatePage(pageName);
 }
 

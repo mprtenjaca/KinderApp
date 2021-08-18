@@ -8,5 +8,4 @@ router.get('/user/:id', auth, UserController.getUser)
 router.patch('/user', auth, UserController.updateUser)
 router.get('/suggestionsUser', auth, UserController.suggestionsUser)
 
-
 export default router;

@@ -3,9 +3,7 @@ import { PROFILE_TYPES } from '../actions/profileAction'
 
 const initialState = {
     loading: false,
-    ids: [],
-    users: [],
-    posts: []
+    childeren: []
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -28,7 +26,7 @@ const profileReducer = (state = initialState, action) => {
         case PROFILE_TYPES.GET_CHILD:
             return {
                 ...state,
-                posts: [...state.posts, action.payload]
+                childeren: [...state.childeren, action.payload]
             };
         // case PROFILE_TYPES.UPDATE_CHILD:
         //     return {

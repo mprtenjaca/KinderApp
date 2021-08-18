@@ -4,7 +4,6 @@ import { Redirect, Route } from 'react-router-dom'
 const PrivateRouter = (props) => {
     const firstLogin = localStorage.getItem("firstLogin");
 
-    console.log("marko")
     return firstLogin ? <Route {...props} /> : <Redirect to="/" />
 }
 

@@ -1,6 +1,7 @@
 import { GLOBALTYPES } from './globalTypes'
 import { getDataAPI, patchDataAPI } from '../../utils/fetchData'
 import { imageUpload } from '../../utils/imageUpload'
+import tempAvatar from '../../images/avatar.svg';
 
 
 export const PROFILE_TYPES = {

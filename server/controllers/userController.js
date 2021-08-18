@@ -1,4 +1,5 @@
 import Users from '../models/parentModel.js';
+import childModel from '../models/childModel.js';
 
 const userController = {
     searchUser: async (req, res) => {
@@ -59,7 +60,7 @@ const userController = {
         } catch (err) {
             return res.status(500).json({msg: err.message})
         }
-    },
+    }
 }
 
 

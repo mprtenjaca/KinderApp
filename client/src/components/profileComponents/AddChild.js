@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { GLOBALTYPES } from '../../redux/actions/globalTypes';
-import { updateProfileUser } from '../../redux/actions/profileAction';
+import { addUserChild } from '../../redux/actions/childAction';
 import { checkImage } from '../../utils/imageUpload';
 
-const EditProfile = ({setOnEdit}) => {
+import tempAvatar from '../../images/avatar.svg';
+
+const AddChild = ({setOnAddChild}) => {
 
     const initialState = {
-        firstName: '', lastName: '', email: '', contactPhone: '', gender: ''
+        firstName: '', lastName: '', age: '', gender: ''
     }
 
-    const [userData, setUserData] = useState(initialState);
-    const {firstName, lastName, email, contactPhone, gender} = userData;
+    const [childData, setChildData] = useState(initialState);
+    const {firstName, lastName, age, gender} = childData;
 
     const [avatar, setAvatar] = useState('')
 
@@ -19,10 +21,6 @@ const EditProfile = ({setOnEdit}) => {
     const dispatch = useDispatch()
 
     console.log(auth)
-
-    useEffect(() => {
-        setUserData(auth.user)
-    }, [auth.user])
 
     const changeAvatar = (e) => {
         const file = e.target.files[0]
@@ -35,23 +33,23 @@ const EditProfile = ({setOnEdit}) => {
 
     const handleInput = e => {
         const {name, value} = e.target
-        setUserData({...userData, [name]:value})
+        setChildData({...childData, [name]:value})
     }
 
     const handleSumbit = e => {
         e.preventDefault()
-        dispatch(updateProfileUser({userData, avatar, auth}))
+        dispatch(addUserChild({childData, avatar, auth}))
     }
 
     return (
         <div className="edit_profile">
-            <button className="btn btn-danger btn_close" onClick={() => setOnEdit(false)}>
+            <button className="btn btn-danger btn_close" onClick={() => setOnAddChild(false)}>
                 Close
             </button>
             
             <form onSubmit={handleSumbit}>
                 <div className="info_avatar">
-                    <img className="avatar_img" src={avatar ? URL.createObjectURL(avatar) : auth.user.avatar} alt="avatar"></img>
+                    <img className="avatar_img" src={avatar ? URL.createObjectURL(avatar) : tempAvatar} alt="avatar"></img>
                     <input type="file" id="file_up" accept="image/*" onChange={changeAvatar} /><span className="material-icons">camera_alt</span>
                 </div>
 
@@ -80,14 +78,8 @@ const EditProfile = ({setOnEdit}) => {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input type="text" name="email" value={email}
-                    className="form-control" onChange={handleInput} />
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="contactPhone">Contact Phone</label>
-                    <input type="text" name="contactPhone" value={contactPhone}
+                    <label htmlFor="age">Age</label>
+                    <input type="text" name="age" value={age}
                     className="form-control" onChange={handleInput} />
                 </div>
 
@@ -108,4 +100,4 @@ const EditProfile = ({setOnEdit}) => {
     )
 }
 
-export default EditProfile
+export default AddChild
