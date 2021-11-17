@@ -8,7 +8,6 @@ const userSchema = new mongoose.Schema({
     password: {type: String, required: true},
     avatar: {type: String, default: 'http://www.smartpowerdrink.com/pub/skin/default-skin/img/avatar.png'},
     contactPhone: {type: String, default: ''},
-    //childerenIDs: {type: String, required: true, trim: true},
     role: {type: String, default: 'user'},
     gender: {type: String, default: 'female'},
 }, {

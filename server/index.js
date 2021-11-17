@@ -7,6 +7,7 @@ import dotenv from 'dotenv';
 import authRouter from './routes/authRouter.js';
 import userRouter from './routes/userRouter.js';
 import childRouter from './routes/childRouter.js';
+import postRouter from './routes/postRouter.js';
 
 dotenv.config();
 const app = exrpess();
@@ -21,6 +22,8 @@ app.use(cors());
 app.use('/api', authRouter);
 app.use('/api', userRouter);
 app.use('/api', childRouter);
+app.use('/api', postRouter);
+
 
 const CONNECTION_URL = process.env.MONGODB_URL;
 const PORT = process.env.PORT || 5000;
